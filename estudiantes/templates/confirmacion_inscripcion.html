@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Confirmación de Inscripción
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<h1>
+Confirmación de Inscripción
+</h1>
+
+
+<h3>
+Datos del estudiante
+</h3>
+
+
+<p>
+Código SIS:
+{{ estudiante.cod_sis_est }}
+</p>
+
+
+<p>
+Nombre:
+{{ estudiante.nombres_est }}
+{{ estudiante.apellidos_est }}
+</p>
+
+
+
+<h3>
+Materias seleccionadas
+</h3>
+
+
+
+<table border="1" width="100%">
+
+
+<tr>
+
+<th>
+Materia
+</th>
+
+<th>
+Grupo
+</th>
+
+<th>
+Docente
+</th>
+
+<th>
+Créditos
+</th>
+
+</tr>
+
+
+
+{% for grupo in grupos %}
+
+
+<tr>
+
+<td>
+{{ grupo.materia.nombre }}
+</td>
+
+
+<td>
+{{ grupo.nombre_grupo }}
+</td>
+
+
+<td>
+{{ grupo.docente }}
+</td>
+
+
+<td>
+{{ grupo.materia.creditos }}
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+<br>
+
+
+<h3>
+¿Confirmar inscripción?
+</h3>
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+<button type="submit">
+Confirmar inscripción
+</button>
+
+
+</form>
+
+
+
+{% endblock %}

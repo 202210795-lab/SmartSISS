@@ -1,0 +1,565 @@
+{% extends "base.html" %}
+
+{% block title %}
+SmartSISS - UMSS
+{% endblock %}
+
+
+{% block content %}
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+
+<style>
+
+body{
+    background:#f4f7ff;
+    font-family:'Poppins',sans-serif;
+}
+
+
+
+/* HERO */
+
+.hero{
+
+    background:linear-gradient(135deg,#eaf3ff,#faf7ff);
+
+    border-radius:35px;
+
+    padding:45px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+
+
+.hero-text{
+
+    width:50%;
+
+}
+
+
+
+.hero-text h1{
+
+    font-size:45px;
+
+    color:#123b7a;
+
+    font-weight:700;
+
+}
+
+
+
+.hero-text h2{
+
+    color:#6577b8;
+
+    font-size:24px;
+
+}
+
+
+
+.hero-text p{
+
+    color:#555;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:15px 35px;
+
+    background:#123b7a;
+
+    color:white;
+
+    border-radius:15px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+    background:#1e5bb8;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+/* IMAGEN */
+
+.hero-image{
+
+    width:45%;
+
+    height:350px;
+
+}
+
+
+
+.imagen-estudiante{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+
+/* TARJETAS */
+
+.cards{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-top:35px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    flex:1;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 35px rgba(0,0,0,.15);
+
+}
+
+
+
+.icon{
+
+    font-size:45px;
+
+    color:#123b7a;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card h3{
+
+    color:#123b7a;
+
+}
+
+
+
+.card p{
+
+    color:#666;
+
+}
+
+
+/* BENEFICIOS */
+
+
+.beneficios{
+
+    margin-top:45px;
+
+}
+
+
+.beneficios h2{
+
+    color:#123b7a;
+
+}
+
+
+.beneficio-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+
+
+.beneficio{
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:22px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.beneficio:hover{
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.beneficio h3{
+
+    color:#123b7a;
+
+    font-size:17px;
+
+}
+
+
+
+.beneficio p{
+
+    color:#666;
+
+    font-size:14px;
+
+}
+
+</style>
+
+
+<div class="hero">
+
+
+<div class="hero-text">
+
+
+<h1>
+SmartSISS - UMSS
+</h1>
+
+
+<h2>
+Sistema Inteligente de Servicios para Estudiantes
+</h2>
+
+
+<p>
+Gestiona tu inscripción académica, consulta tus materias
+y genera tu Kardex universitario de manera rápida,
+fácil y segura.
+</p>
+
+
+<a class="btn" href="/login/">
+Ingresar al sistema →
+</a>
+
+
+</div>
+
+
+
+<div class="hero-image">
+
+{% load static %}
+
+<img src="{% static 'images/estudiante.png.jpg' %}" 
+class="imagen-estudiante">
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="cards">
+
+
+<a href="/gestion/" style="text-decoration:none;color:inherit;">
+
+<div class="card">
+
+<div class="icon">
+
+<i class="bi bi-journal-bookmark-fill"></i>
+
+</div>
+
+
+<h3>
+Inscripción Académica
+</h3>
+
+
+<p>
+Registra tus materias de forma rápida y sencilla.
+</p>
+
+
+</div>
+
+</a>
+
+
+
+
+<a href="/kardex/" style="text-decoration:none;color:inherit;">
+
+<div class="card">
+
+<div class="icon">
+
+<i class="bi bi-file-earmark-text-fill"></i>
+
+</div>
+
+
+<h3>
+Generar Kardex
+</h3>
+
+
+<p>
+Consulta tu historial académico.
+</p>
+
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="/perfil/" style="text-decoration:none;color:inherit;">
+
+<div class="card">
+
+<div class="icon">
+
+<i class="bi bi-person-circle"></i>
+
+</div>
+
+
+<h3>
+Perfil del Estudiante
+</h3>
+
+
+<p>
+Actualiza tus datos personales.
+</p>
+
+
+</div>
+
+</a>
+
+
+</div>
+
+
+
+
+
+<div class="beneficios">
+
+
+<h2>
+¿Por qué SmartSISS?
+</h2>
+
+
+
+<div class="beneficio-grid">
+
+
+
+<a href="/inscripcion/" style="text-decoration:none;color:inherit;">
+
+<div class="beneficio">
+
+<div class="icon">
+
+<i class="bi bi-lightning-charge"></i>
+
+</div>
+
+
+<h3>
+Inscripción rápida
+</h3>
+
+
+<p>
+Realiza tu inscripción en pocos pasos.
+</p>
+
+
+</div>
+
+</a>
+
+
+
+
+<a href="/perfil/" style="text-decoration:none;color:inherit;">
+
+
+<div class="beneficio">
+
+<div class="icon">
+
+<i class="bi bi-shield-check"></i>
+
+</div>
+
+
+<h3>
+Información segura
+</h3>
+
+
+<p>
+Tus datos académicos protegidos.
+</p>
+
+
+</div>
+
+</a>
+
+
+
+
+
+<div class="beneficio">
+
+<div class="icon">
+
+<i class="bi bi-phone"></i>
+
+</div>
+
+
+<h3>
+Compatible con celulares
+</h3>
+
+
+<p>
+Accede desde cualquier dispositivo.
+</p>
+
+
+</div>
+
+</a>
+
+
+
+
+
+<a href="/kardex/" style="text-decoration:none;color:inherit;">
+
+
+<div class="beneficio">
+
+<div class="icon">
+
+<i class="bi bi-clock-history"></i>
+
+</div>
+
+
+<h3>
+Kardex en segundos
+</h3>
+
+
+<p>
+Consulta tus notas rápidamente.
+</p>
+
+
+</div>
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

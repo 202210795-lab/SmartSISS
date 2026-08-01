@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Inscripción - SmartSISS
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+
+.header-modulo{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+
+.header-modulo h1{
+
+    color:#123b7a;
+
+}
+
+
+
+.btn-volver{
+
+    background:#123b7a;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+.btn-volver:hover{
+
+    background:#1e5bb8;
+
+}
+
+
+
+.mensaje{
+
+    background:#e8f5e9;
+
+    color:#2e7d32;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+
+
+.tabla-inscripcion{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+.tabla-inscripcion th{
+
+    background:#123b7a;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+
+
+.tabla-inscripcion td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.tabla-inscripcion tr:hover{
+
+    background:#f4f8ff;
+
+}
+
+
+
+.btn-inscribir{
+
+    background:#5575e8;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-inscribir:hover{
+
+    background:#123b7a;
+
+}
+
+
+</style>
+
+
+
+
+
+<div class="header-modulo">
+
+
+<h1>
+📚 Inscripción de Materias
+</h1>
+
+
+
+<a href="/" class="btn-volver">
+
+← Volver al inicio
+
+</a>
+
+
+</div>
+
+
+
+
+
+{% if mensaje %}
+
+
+<div class="mensaje">
+
+{{ mensaje }}
+
+</div>
+
+
+{% endif %}
+
+
+
+
+
+
+
+<table class="tabla-inscripcion">
+
+
+<tr>
+
+
+<th>
+Grupo
+</th>
+
+
+<th>
+Materia
+</th>
+
+
+<th>
+Docente
+</th>
+
+
+<th>
+Créditos
+</th>
+
+
+<th>
+Cupo
+</th>
+
+
+<th>
+Acción
+</th>
+
+
+</tr>
+
+
+
+
+
+{% for grupo in grupos %}
+
+
+<tr>
+
+
+
+<td>
+{{ grupo.nombre_grupo }}
+</td>
+
+
+
+<td>
+{{ grupo.materia.nombre }}
+</td>
+
+
+
+<td>
+{{ grupo.docente }}
+</td>
+
+
+
+<td>
+{{ grupo.materia.creditos }}
+</td>
+
+
+
+<td>
+{{ grupo.cupo }}
+</td>
+
+
+
+
+
+<td>
+
+
+<form method="POST">
+
+
+{% csrf_token %}
+
+
+<input 
+type="hidden" 
+name="grupo_id" 
+value="{{ grupo.id_grupo }}"
+>
+
+
+
+<button class="btn-inscribir" type="submit">
+
+Inscribirse
+
+</button>
+
+
+
+</form>
+
+
+</td>
+
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+
+
+</table>
+
+
+
+
+{% endblock %}

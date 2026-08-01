@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Inscripción Completada
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div style="text-align:center;">
+
+
+<h1 style="color:green;">
+✓ Inscripción realizada correctamente
+</h1>
+
+
+<h3>
+Resumen de inscripción
+</h3>
+
+
+
+<p>
+<b>Estudiante:</b>
+
+{{ estudiante.nombres_est }}
+{{ estudiante.apellidos_est }}
+
+</p>
+
+
+
+<p>
+<b>Código SIS:</b>
+
+{{ estudiante.cod_sis_est }}
+
+</p>
+
+
+
+<h3>
+Materias inscritas
+</h3>
+
+
+
+<table border="1" width="70%" align="center">
+
+
+<tr>
+
+<th>
+Materia
+</th>
+
+<th>
+Grupo
+</th>
+
+<th>
+Créditos
+</th>
+
+</tr>
+
+
+
+{% for grupo in grupos %}
+
+
+<tr>
+
+<td>
+{{ grupo.materia.nombre }}
+</td>
+
+
+<td>
+{{ grupo.nombre_grupo }}
+</td>
+
+
+<td>
+{{ grupo.materia.creditos }}
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+<br>
+
+
+<a href="/kardex/">
+Ver Kardex
+</a>
+
+
+</div>
+
+
+{% endblock %}

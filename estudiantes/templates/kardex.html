@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Kardex - SmartSISS
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+
+.kardex-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+
+}
+
+
+.kardex-header h1{
+
+    color:#123b7a;
+    font-size:32px;
+
+}
+
+
+
+.btn-volver{
+
+    background:#123b7a;
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-volver:hover{
+
+    background:#1e5bb8;
+
+}
+
+
+
+.info-estudiante{
+
+    background:linear-gradient(135deg,#eef5ff,#ffffff);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    margin-bottom:30px;
+
+}
+
+
+
+.info-estudiante p{
+
+    margin:8px 0;
+
+    color:#555;
+
+}
+
+
+
+.fecha{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+
+
+.tabla-kardex{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+.tabla-kardex th{
+
+    background:#123b7a;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+
+
+.tabla-kardex td{
+
+    padding:14px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eee;
+
+}
+
+
+
+.tabla-kardex tr:hover{
+
+    background:#f4f8ff;
+
+}
+
+
+</style>
+
+
+
+
+
+<div class="kardex-header">
+
+
+<h1>
+📄 Kardex Académico
+</h1>
+
+
+<a href="/" class="btn-volver">
+
+← Volver al inicio
+
+</a>
+
+
+</div>
+
+
+
+
+<div class="info-estudiante">
+
+
+{% if estudiante %}
+
+
+<p>
+<b>Código SIS:</b>
+{{ estudiante.cod_sis_est }}
+</p>
+
+
+<p>
+<b>Nombre:</b>
+{{ estudiante.nombres_est }}
+{{ estudiante.apellidos_est }}
+</p>
+
+
+<p class="fecha">
+
+Fecha de consulta:
+01/08/2026
+
+</p>
+
+
+
+{% endif %}
+
+
+</div>
+
+
+
+
+
+<table class="tabla-kardex">
+
+
+<tr>
+
+<th>
+Código SIS
+</th>
+
+<th>
+Estudiante
+</th>
+
+<th>
+Materia
+</th>
+
+<th>
+Créditos
+</th>
+
+<th>
+Gestión
+</th>
+
+<th>
+Periodo
+</th>
+
+<th>
+Nota Final
+</th>
+
+
+</tr>
+
+
+
+
+
+{% for registro in kardex %}
+
+
+<tr>
+
+
+<td>
+{{ registro.inscripcion.estudiante.cod_sis_est }}
+</td>
+
+
+
+<td>
+{{ registro.inscripcion.estudiante }}
+</td>
+
+
+
+<td>
+{{ registro.inscripcion.grupo.materia.nombre }}
+</td>
+
+
+
+<td>
+{{ registro.inscripcion.grupo.materia.creditos }}
+</td>
+
+
+
+<td>
+{{ registro.gestion }}
+</td>
+
+
+
+<td>
+{{ registro.periodo }}
+</td>
+
+
+
+<td>
+{{ registro.nota_final }}
+</td>
+
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+
+{% endblock %}

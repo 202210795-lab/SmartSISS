@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Selección de Materias
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<h1>
+Oferta Académica
+</h1>
+
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+
+<table border="1" width="100%">
+
+
+<tr>
+
+<th>
+Seleccionar
+</th>
+
+<th>
+Materia
+</th>
+
+<th>
+Grupo
+</th>
+
+<th>
+Docente
+</th>
+
+<th>
+Créditos
+</th>
+
+<th>
+Cupo
+</th>
+
+</tr>
+
+
+
+{% for grupo in grupos %}
+
+
+<tr>
+
+
+<td>
+
+<input 
+type="checkbox"
+name="grupos"
+value="{{ grupo.id_grupo }}"
+>
+
+</td>
+
+
+
+<td>
+{{ grupo.materia.nombre }}
+</td>
+
+
+
+<td>
+{{ grupo.nombre_grupo }}
+</td>
+
+
+
+<td>
+{{ grupo.docente }}
+</td>
+
+
+
+<td>
+{{ grupo.materia.creditos }}
+</td>
+
+
+
+<td>
+{{ grupo.cupo }}
+</td>
+
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+<br>
+
+
+<button type="submit">
+Continuar
+</button>
+
+
+</form>
+
+
+{% endblock %}

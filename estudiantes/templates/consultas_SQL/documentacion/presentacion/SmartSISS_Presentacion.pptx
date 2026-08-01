@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ingreso SmartSISS
+{% endblock %}
+
+
+{% block content %}
+
+<div style="text-align:center; margin-top:50px;">
+
+
+<h1 style="color:#1f4e79;">
+SmartSISS - UMSS
+</h1>
+
+
+<h2>
+Ingreso al sistema académico
+</h2>
+
+
+<form method="POST">
+
+{% csrf_token %}
+
+
+<div>
+
+<label>
+Código SIS
+</label>
+
+<br>
+
+<input 
+type="text"
+name="codigo"
+placeholder="Ingrese su código SIS"
+>
+
+</div>
+
+
+<br>
+
+
+<div>
+
+<label>
+Contraseña
+</label>
+
+<br>
+
+<input 
+type="password"
+name="password"
+placeholder="Ingrese contraseña"
+>
+
+</div>
+
+
+<br>
+
+
+<button 
+type="submit"
+style="
+background:#1f4e79;
+color:white;
+padding:12px 35px;
+border:none;
+border-radius:5px;
+">
+
+Ingresar
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+{% endblock %}

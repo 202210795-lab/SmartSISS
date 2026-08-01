@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Selección de Grupo
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<h1>
+Selección de Grupo
+</h1>
+
+
+<h3>
+Materia: Base de Datos
+</h3>
+
+
+
+<table border="1" width="90%">
+
+
+<tr>
+
+<th>
+Seleccionar
+</th>
+
+<th>
+Grupo
+</th>
+
+<th>
+Docente
+</th>
+
+<th>
+Horario
+</th>
+
+<th>
+Aula
+</th>
+
+<th>
+Cupo
+</th>
+
+</tr>
+
+
+
+<tr>
+
+<td>
+<input type="radio" name="grupo">
+</td>
+
+
+<td>
+A
+</td>
+
+
+<td>
+Juan Pérez
+</td>
+
+
+<td>
+Lunes - Miércoles
+08:00 - 10:00
+</td>
+
+
+<td>
+Laboratorio 1
+</td>
+
+
+<td>
+Disponible
+</td>
+
+
+</tr>
+
+
+
+<tr>
+
+<td>
+<input type="radio" name="grupo">
+</td>
+
+
+<td>
+B
+</td>
+
+
+<td>
+María López
+</td>
+
+
+<td>
+Martes - Jueves
+10:00 - 12:00
+</td>
+
+
+<td>
+Aula 204
+</td>
+
+
+<td>
+Disponible
+</td>
+
+
+</tr>
+
+
+</table>
+
+
+
+<br>
+
+
+<a href="/horario-aula/">
+
+<button type="button">
+Continuar
+</button>
+
+</a>
+
+{% endblock %}

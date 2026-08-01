@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Gestión Académica - SmartSISS
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<style>
+
+
+.header-modulo{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+
+}
+
+
+.header-modulo h1{
+
+    color:#123b7a;
+
+}
+
+
+
+.btn-volver{
+
+    background:#123b7a;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-volver:hover{
+
+    background:#1e5bb8;
+
+}
+
+
+
+.form-card{
+
+    background:linear-gradient(
+        135deg,
+        #eef5ff,
+        #ffffff
+    );
+
+    padding:35px;
+
+    border-radius:25px;
+
+    width:450px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+.form-card label{
+
+    color:#123b7a;
+
+    font-weight:600;
+
+}
+
+
+
+.form-card select{
+
+    width:100%;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    border:1px solid #ccc;
+
+    margin-top:8px;
+
+}
+
+
+
+.btn-continuar{
+
+    margin-top:25px;
+
+    background:#5575e8;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 35px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-continuar:hover{
+
+    background:#123b7a;
+
+}
+
+
+
+</style>
+
+
+
+
+
+<div class="header-modulo">
+
+
+<h1>
+📚 Selección Académica
+</h1>
+
+
+
+<a href="/" class="btn-volver">
+
+← Volver al inicio
+
+</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="form-card">
+
+
+
+<form method="POST">
+
+
+{% csrf_token %}
+
+
+
+<label>
+Gestión:
+</label>
+
+
+
+<select name="gestion">
+
+
+<option value="2026">
+2026
+</option>
+
+
+</select>
+
+
+
+
+
+<br><br>
+
+
+
+
+<label>
+Periodo:
+</label>
+
+
+
+
+<select name="periodo">
+
+
+<option value="1">
+Primer Semestre
+</option>
+
+
+
+<option value="2">
+Segundo Semestre
+</option>
+
+
+
+</select>
+
+
+
+
+
+<a href="/validacion-periodo/">
+
+
+<button 
+type="button"
+class="btn-continuar">
+
+Continuar →
+
+</button>
+
+
+</a>
+
+
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+
+
+{% endblock %}s
